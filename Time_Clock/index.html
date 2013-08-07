@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+  <input type="date" name="" id="date" value="">
+  <input type="time" name="" id="time" value="">
+  <button id="set">set</button>
+  <input type="text" id="now" value="" readonly>
+  <script type="text/javascript">
+  (function(){
+    'use strict';
+
+    var dt = {
+      year: '',
+      month: '',
+      day: '',
+      hour: '',
+      minute: ''
+    };
+
+    setInterval(function() {
+      document.getElementById('now').value = new Date();
+    }, 1000)
+
+    function setTime(time) {
+      navigator.mozTime.set(time);
+    }
+
+    window.addEventListener('moztimechange', function() {
+      console.log('changed');
+    });
+
+    document.getElementById('date').addEventListener('blur', function(ev) {
+      var val = this.value.split(/\D/);
+      dt.year = val[0];
+      dt.month = --val[1];
+      dt.day = val[2];
+    });
+
+    document.getElementById('time').addEventListener('blur', function(ev) {
+      var val = this.value.split(/\D/);
+      dt.hour = val[0];
+      dt.minute = val[1];
+    });
+
+    document.getElementById('set').addEventListener('click', function(ev) {
+      setTime(new Date(dt.year, dt.month, dt.day, dt.hour, dt.minute));
+    });
+   
+  })();
+  </script>
+</body>
+</html>

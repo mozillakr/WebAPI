@@ -1,0 +1,17 @@
+{
+  "name": "testapp",
+  "description": "it is a test app",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "test.png"
+  },
+  "developer": {
+    "name": "test user",
+    "url": "http://localhost"
+  },
+  "default_locale": "ko",
+  "type": "certified",
+  "permissions": {
+    "time": {}
+  }
+}
