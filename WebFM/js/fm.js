@@ -10,39 +10,6 @@ function $$(expr) {
 
 // XXX fake mozFMRadio object for UI testing on PC
 var mozFMRadio = navigator.mozFM || navigator.mozFMRadio || {
-  curLocation: null,
-  latitude: null,
-  longitude: null,
-  stationFreqByLocation:  {
-    "서울특별시" : {
-      "91.9" : "S00001",
-      "95.9" : "S00002"
-    },
-    "제주시" : {
-      "90.5" : "S00001",
-      "97.9" : "S00002"
-    }
-  },
-  stationCode: {
-    "S00001" : "MBC FM4U",
-    "S00002" : "MBC 표준FM",
-    "S00003" : "SBS 파워FM",
-    "S00004" : "SBS 러브FM"
-  },
-  timeTable: {
-    "S00001" : [
-      "1600|오후의 발견, 스윗소로우 입니다",
-      "1800|배철수의 음악캠프",
-      "2000|로이킴, 정준영의 친한친구"
-    ],
-    "S00002" : [
-      "1800|뉴스",
-      "1805|왕상한의 세계는 우리는(1,2부)",
-      "1900|뉴스포커스",
-      "1920|왕산한의 세계는 우리는(3,4부)",
-      "2000|뉴스데스크"
-    ]
-  },
   speakerEnabled: false,
 
   frequency: null,
@@ -115,7 +82,7 @@ var mozFMRadio = navigator.mozFM || navigator.mozFMRadio || {
     }
     this._seekRequest = {};
     this._seekTimeout = window.setTimeout(function su_timeout() {
-      self.setFrequency(self.frequency + 0.1);
+      self.setFrequency(self.frequency + self.channelWidth);
       if (self._seekRequest.onsuccess) {
         self._seekRequest.onsuccess();
       }
@@ -131,7 +98,7 @@ var mozFMRadio = navigator.mozFM || navigator.mozFMRadio || {
     }
     this._seekRequest = {};
     this._seekTimeout = window.setTimeout(function sd_timeout() {
-      self.setFrequency(self.frequency - 0.5);
+      self.setFrequency(self.frequency - self.channelWidth);
       if (self._seekRequest.onsuccess) {
         self._seekRequest.onsuccess();
       }
@@ -160,6 +127,43 @@ var mozFMRadio = navigator.mozFM || navigator.mozFMRadio || {
       this._seekRequest.onerror();
       this._seekRequest = null;
     }
+  }
+};
+
+// add custom variables
+var mozFMRadioCustomData = {
+  curLocation: null,
+  latitude: null,
+  longitude: null,
+  stationFreqByLocation:  {
+    "서울특별시" : {
+      "91.9" : "S00001",
+      "95.9" : "S00002"
+    },
+    "제주시" : {
+      "90.1" : "S00001",
+      "97.9" : "S00002"
+    }
+  },
+  stationCode: {
+    "S00001" : "MBC FM4U",
+    "S00002" : "MBC 표준FM",
+    "S00003" : "SBS 파워FM",
+    "S00004" : "SBS 러브FM"
+  },
+  timeTable: {
+    "S00001" : [
+      "1600|오후의 발견, 스윗소로우 입니다",
+      "1800|배철수의 음악캠프",
+      "2000|로이킴, 정준영의 친한친구"
+    ],
+    "S00002" : [
+      "1800|뉴스",
+      "1805|왕상한의 세계는 우리는(1,2부)",
+      "1900|뉴스포커스",
+      "1920|왕산한의 세계는 우리는(3,4부)",
+      "2000|뉴스데스크"
+    ]
   },
 
   setCurrentLocation: function(strLocation) {
@@ -171,10 +175,12 @@ var mozFMRadio = navigator.mozFM || navigator.mozFMRadio || {
   },
 
   setCurrentLatitude: function(latitude) {
+    console.log( "setCurrentLatitude :", latitude );
     this.latitude = latitude;
   },
 
   setCurrentLongitude: function(longitude) {
+    console.log( "setCurrentLongitude :", longitude );
     this.longitude = longitude;
   },
 
@@ -187,12 +193,16 @@ var mozFMRadio = navigator.mozFM || navigator.mozFMRadio || {
   },
 
   getStationCode: function() {
-    var loc = this.curLocation.split('|');
-    var freq = this.frequency;
-    var areaInfo = this.stationFreqByLocation[loc[1]] || this.stationFreqByLocation[loc[0]];
+    
     var stationCode = null;
-    if( !!areaInfo && areaInfo[freq] ) {
-      stationCode = areaInfo[freq];
+    if( !!this.curLocation ) {
+      var loc = this.curLocation.split('|');
+      var freq = mozFMRadio.frequency;
+      var areaInfo = this.stationFreqByLocation[loc[1]] || this.stationFreqByLocation[loc[0]];
+      
+      if( !!areaInfo && areaInfo[freq] ) {
+        stationCode = areaInfo[freq];
+      }
     }
     return stationCode;
   },
@@ -226,9 +236,9 @@ var mozFMRadio = navigator.mozFM || navigator.mozFMRadio || {
     console.log(now, time);
     var stationCode = this.getStationCode();
     return this.getProgramName( stationCode, time );
-  }
+  }  
 };
-
+  
 // XXX fake mozSetting object for UI testing on PC
 var mozSettings = navigator.mozSettings || {
   addObserver: function settings_addObserver(key, callback) {},
@@ -534,9 +544,9 @@ var frequencyDialer = {
   },
 
   _updateFreqTitle: function() {
-    var location = mozFMRadio.getCurrentLocation() || '';
+    var location = mozFMRadioCustomData.getCurrentLocation() || '';
     if (location) {
-      var title = mozFMRadio.getCurrentProgramName() || '정보 없음';
+      var title = mozFMRadioCustomData.getCurrentProgramName() || '정보 없음';
       $('frequency-title').textContent = location + ': ' + title;
     }
   },
@@ -818,8 +828,8 @@ function startWatchPosition() {
 
 function renderRegionName(data) {
   var elem = $('loc');
-  mozFMRadio.setCurrentLocation(data.name1 + '|' +  data.name2);
-  console.log('current location: ' + mozFMRadio.curLocation);
+  mozFMRadioCustomData.setCurrentLocation(data.name1 + '|' +  data.name2);
+  console.log('current location: ' + mozFMRadioCustomData.curLocation);
 
   frequencyDialer._updateFreqTitle();
 }
@@ -832,8 +842,8 @@ function init() {
       var latitude  = position.coords.latitude;
       var longitude = position.coords.longitude;
 
-      mozFMRadio.setCurrentLatitude(latitude);
-      mozFMRadio.setCurrentLongitude(longitude);
+      mozFMRadioCustomData.setCurrentLatitude(latitude);
+      mozFMRadioCustomData.setCurrentLongitude(longitude);
 
       startWatchPosition();
 
