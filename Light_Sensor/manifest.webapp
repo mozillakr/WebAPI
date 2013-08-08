@@ -1,0 +1,14 @@
+{
+    "version": "0.1",
+    "description": "DeviceLightAPI",
+    "name": "DeviceLight",
+    "launch_path": "/index.html",
+    "developer": {
+        "name": "Hyeonseok Shin",
+        "url": "http://hyeonseok.com/"
+    },
+    "icons": {
+        "128": "/icon_256.png",
+        "256": "/icon_256.png"
+    }
+}

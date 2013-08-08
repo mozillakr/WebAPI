@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>Device Light API</title>
+</head>
+<body>
+<p style="background-color: #fff">
+	Current Light in lux: <span id="light"></span>
+</p>
+<script>
+var el = document.getElementById('light');
+var body = document.getElementsByTagName('body')[0];
+var lights = new Array('000', '110', '220', '330', '440', '550', '660', '770', '880', '990', 'aa0', 'bb0', 'cc0', 'dd0', 'ee0', 'ff0');
+window.addEventListener('devicelight', function(event) {
+	var value = event.value;
+	el.innerHTML = value;
+
+	var color = parseInt(value / 16);
+	if (color > 16) {
+		color = 16;
+	}
+
+	body.style.backgroundColor = '#' + lights[color];
+});
+</script>
+</body>
+</html>
