@@ -33,7 +33,7 @@ var mozFMRadio = navigator.mozFM || navigator.mozFMRadio || {
     "S00001" : [
       "1600|오후의 발견, 스윗소로우 입니다",
       "1800|배철수의 음악캠프",
-      "2200|로이킴, 정준영의 친한친구"
+      "2000|로이킴, 정준영의 친한친구"
     ],
     "S00002" : [
       "1800|뉴스",
@@ -115,7 +115,7 @@ var mozFMRadio = navigator.mozFM || navigator.mozFMRadio || {
     }
     this._seekRequest = {};
     this._seekTimeout = window.setTimeout(function su_timeout() {
-      self.setFrequency(self.frequency + 0.5);
+      self.setFrequency(self.frequency + 0.1);
       if (self._seekRequest.onsuccess) {
         self._seekRequest.onsuccess();
       }
@@ -204,6 +204,11 @@ var mozFMRadio = navigator.mozFM || navigator.mozFMRadio || {
     if( !!_timeTable ) {
       for( var i=0, len=_timeTable.length ; i<len ; ++i ) {
         var item = _timeTable[i].split('|');
+        console.log(time, item[0]);
+
+        if (i == 0) {
+          currentProgramName = item[1];
+        }
         if( time < item[0] ) {
             currentProgramName = item[1];
             continue;
@@ -217,7 +222,8 @@ var mozFMRadio = navigator.mozFM || navigator.mozFMRadio || {
 
   getCurrentProgramName: function() {
     var now = new Date();
-    var time = now.getHours() + now.getMinutes();
+    var time = now.getHours() + '' +  now.getMinutes();
+    console.log(now, time);
     var stationCode = this.getStationCode();
     return this.getProgramName( stationCode, time );
   }
@@ -838,7 +844,7 @@ function init() {
       scriptElem.src = url;
       document.body.appendChild(scriptElem);
     }, function(error) {
-      alert('ERROR(' + error.code + '): ' + error.message);
+      alert('현재 위치를 확인하는데 실패했습니다.');
     });
   } else {
     alert('GPS를 활성화해주세요!');
