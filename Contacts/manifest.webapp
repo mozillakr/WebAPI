@@ -1,0 +1,20 @@
+{
+  "version": "0.1",
+  "name": "Contacts",
+  "type" : "privileged",
+  "csp" : "default-src *; script-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'",
+  "launch_path": "/index.html",
+  "installs_allowed_from": ["*"],
+  "default_locale": "en",
+  "permissions": {
+    "contacts": {
+      "description": "Contacts App",
+      "access": "readwrite"
+    }
+  },
+  "icons": {
+    "16": "img/icon-16.png",
+    "48": "img/icon-48.png",
+    "128": "img/icon-128.png"
+  }
+}
