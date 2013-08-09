@@ -10,7 +10,6 @@ var app = function(){
 			}
 			return document.getElementById(id);
 		},
-		
 		addEvent: function(id, event, callBack){
 			var obj = $(id);
 			if (obj.addEventListener) {
@@ -20,11 +19,9 @@ var app = function(){
 				obj.attachEvent('on'+event, callBack, false);
 			}
 		},
-		
 		getURLParameter: function(name) {
 		  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
 		},
-		
 		back: function(){
 			document.location = "index.html";
 		},
@@ -77,6 +74,7 @@ var app = function(){
 		 * contact create
 		 */
 		contactCreate: function(event){
+			
 			event.preventDefault ? event.preventDefault() : event.returnValue = false;
 			
 			var name = $('name').value;
@@ -208,10 +206,8 @@ var app = function(){
 				removeSearch.onerror = function() {
 					console.warn("Uh! Something goes wrong, no result found!");
 				}
-				
 			}
 		}
-		
 	} //-- return
 }();
 
