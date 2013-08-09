@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Vibration API Example</title>
+	</head>
+	<body>
+		<button id="Vibrate">Vibrate</button>
+		<script type="text/javascript" charset="utf-8">
+			var vibrateButton = document.getElementById("Vibrate");
+			vibrateButton.addEventListener("click", function(){
+					console.log("Let's vibrate");
+					window.navigator.vibrate(1000);
+			});
+		</script>
+	</body>
+</html>
+
