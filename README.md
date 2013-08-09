@@ -6,6 +6,7 @@ WebAPI
 
 ### 발표 & l10n
 
+* [Firefox OS 앱 리뷰](http://www.slideshare.net/Channy/firefox-os-app-review-25040103)
 * 1팀 [Time & clock API](https://developer.mozilla.org/ko/docs/WebAPI/Time_and_Clock)
 * 2팀 [WebSMS](https://developer.mozilla.org/ko/docs/WebAPI/WebSMS)
 * 3팀 [Contacts API](https://developer.mozilla.org/ko/docs/WebAPI/Contacts)
@@ -21,7 +22,11 @@ WebAPI
 8/5
 ---
 
-### 차주 발표 과제
+### 발표
+
+* [Firefox OS App Dev](http://www.slideshare.net/dynamis/firefox-os-app-dev)
+
+### 차주 과제
 
 * 1팀 Time & clock API
 * 2팀 WebSMS
