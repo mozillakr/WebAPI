@@ -57,7 +57,8 @@
 			</header>
 
 			<div class="bb-docs">
-				<button id="Vibrate">Vibrate</button>
+				<button id="vibrate">Vibrate</button>
+				<button id="stop">Stop</button>
 			</div>
 		</section>
 
@@ -66,11 +67,37 @@
 		<script type="text/javascript" defer src="js/app.js"></script>
 
 		<script type="text/javascript" charset="utf-8">
-			var vibrateButton = document.getElementById("Vibrate");
-			vibrateButton.addEventListener("click", function(){
-					console.log("Let's vibrate");
-					window.navigator.vibrate(1000);
-			});
+			var vibrator = (function(){
+
+				var intervalId;
+
+				function startVibrate() {
+					window.navigator.vibrate(200);
+					intervalId = setInterval(function(){
+						window.navigator.vibrate(200);
+					},200);
+				}
+
+				function stopVibrate() {
+					clearInterval(intervalId);
+					window.navigator.vibrate(0);
+				}
+
+				return {
+					vibrate: startVibrate,
+					stop: stopVibrate
+				}
+			})();
+
+			document.querySelector("#vibrate")
+				.addEventListener("click", function(){
+					vibrator.vibrate();
+				});
+			document.querySelector("#stop")
+				.addEventListener("click", function(){
+					vibrator.stop();
+				});
+
 		</script>
 	</body>
 </html>
