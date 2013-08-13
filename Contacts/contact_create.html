@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contacts</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/app.js"></script>
+<script>
+  window.onload = function(){
+    app.addEvent('btnCreateOnContactCreate', 'click', app.contactCreate);
+    app.addEvent('btnBackOnContactCreate', 'click', app.back);
+  }
+</script>
+</head>
+<body role="application">
+
+	<section role="region">
+		<header class="fixed">
+			<a href="#" id="btnBackOnContactCreate"><span
+				class="icon icon-back">back</span></a>
+			<h1>create</h1>
+		</header>
+		<div class="contact_create">
+			<form>
+				<fieldset>
+					<legend>Name</legend>
+					<section>
+						<p>
+							<input type="text" placeholder="Name" id="name" required>
+							<button type="reset">Clear</button>
+						</p>
+					</section>
+				</fieldset>
+				<fieldset>
+					<legend>Tel</legend>
+					<section>
+						<p>
+							<input type="tel" placeholder="Phone number" id="tel" required>
+							<button type="reset">Clear</button>
+						</p>
+					</section>
+				</fieldset>
+				<div class="bb-docs">
+					<button class="recommend" id="btnCreateOnContactCreate">save</button>
+				</div>
+			</form>
+		</div>
+	</section>
+
+</body>
+</html>
