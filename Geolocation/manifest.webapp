@@ -1,0 +1,38 @@
+{
+  "name": "J Geolocation",
+  "description": "Geolocation Sample by J Team",
+  "type": "certified",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "The Gaia Team J",
+    "url": "https://github.com/mozilla-b2g/gaia"
+  },
+  "permissions": {
+    "storage":{},
+    "settings":{ "access": "readonly" },
+    "geolocation": {}
+  },
+  "locales": {
+    "ar": {
+      "name": "Geolocation",
+      "description": "Gaia Geolocation"
+    },
+    "en-US": {
+      "name": "J Geolocation",
+      "description": "Gaia Geolocation"
+    },
+    "fr": {
+      "name": "Gelocation",
+      "description": "Gaia Geolocation"
+    },
+    "ko": {
+      "name": "지오로케이션",
+      "description": "지오로케이션"
+    }
+ },
+  "default_locale": "ko",
+  "icons": {
+    "128": "/style/geo_icon.png"
+  },
+  "orientation": "portrait-primary"
+}
