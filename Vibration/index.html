@@ -47,6 +47,19 @@
 		div.bb-docs {
 			padding: 1rem;
 		}
+
+    @-moz-keyframes vibrate {
+      from {
+        -moz-transform: rotate(-2deg);
+      }
+      to {
+        -moz-transform: rotate(2deg);
+      }
+    }
+
+    #vibrate.do {
+      -moz-animation: vibrate 10ms linear infinite alternate;
+    }
 		</style>
 
 	</head>
@@ -76,11 +89,13 @@
 					intervalId = setInterval(function(){
 						window.navigator.vibrate(200);
 					},200);
+			    document.querySelector("#vibrate").className = 'do';
 				}
 
 				function stopVibrate() {
 					clearInterval(intervalId);
 					window.navigator.vibrate(0);
+			    document.querySelector("#vibrate").className = '';
 				}
 
 				return {
