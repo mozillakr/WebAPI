@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>IndexedDB API Sample</title>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript">
+			window.onload = function(){
+				app.createStore();
+			}
+        </script>
+    </head>
+    <body>
+        <h1>IndexedDB API Sample</h1>
+        
+        <p>
+			<button onclick="app.initDB()">Init DB</button>
+			<br />
+			
+			<button onclick="app.testWrite()">Add Hanna</button>
+			<br />
+			
+			<button onclick="app.testRemove()">Remove Hanna</button>
+			<br />
+			
+			<button onclick="app.testRead()">Get 555-55-5555</button>
+			<br />
+			
+			<button onclick="app.findValueWithIndex()">Get Donna's SSN</button>
+			<br />
+			
+			<button onclick="app.testGetAllWithCursor()">Get All Using Cursor</button>
+			<br />
+			
+			<button onclick="app.testGetAllWithIndexCursor()">Get All Using Index-Cursor</button>
+			<br />
+			
+			<button onclick="app.testGetAllWithIndexKeyCursor()">Get All Using Index-KeyCursor</button>
+			<br />
+			
+			<button onclick="app.testClear(true)">Clear DB</button>
+			<br />
+		</p>
+    </body>
+</html>

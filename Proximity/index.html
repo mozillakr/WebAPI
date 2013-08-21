@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+	<div>
+		<label>device proximity min:</label>
+		<span id="deviceProximityMin"></span> 
+	</div>
+	<div>
+		<label>device proximity max:</label>
+ 		<span id="deviceProximityMax"></span>
+	</div>
+	<div>
+		<label>current device proximity (min-max):</label>
+		<span id="deviceProximityValue"></span>
+	</div>
+	<div>
+		<label>user proximity (near/far):</label>
+		<span id="userProximity"></span>
+	</div>
+	  
+	<script type="text/javascript">
+  	(function(){
+  	  'use strict';
+
+  	  window.addEventListener('userproximity', function(event) {
+  	  	if (event.near) {
+  	  		document.getElementById('userProximity').innerHTML = "near";
+  	  		navigator.mozPower.screenEnabled = false;	
+  	  	} else {
+  	  		document.getElementById('userProximity').innerHTML = "far";
+  	  		navigator.mozPower.screenEnabled = true;	
+  	  	}
+  	  });
+
+  	  window.addEventListener('deviceproximity', function(event) {
+  	  	document.getElementById('deviceProximityValue').innerHTML = event.value;
+  	  	document.getElementById('deviceProximityMin').innerHTML = event.min;
+  	  	document.getElementById('deviceProximityMax').innerHTML = event.max;
+  	  });
+  	})();
+  	</script>
+</body>
+</html>
