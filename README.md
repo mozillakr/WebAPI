@@ -1,6 +1,23 @@
 WebAPI
 ======
 
+8/16
+----
+
+### 발표 & l10n
+
+* 1팀 [Vibration API](https://developer.mozilla.org/ko/docs/WebAPI/Vibration)
+* 2팀 [DeviceOrientation API](https://developer.mozilla.org/ko/docs/WebAPI/Detecting_device_orientation), [ScreenOrientation API](https://developer.mozilla.org/ko/docs/WebAPI/Managing_screen_orientation)
+* 3팀 [IndexedDB API](https://developer.mozilla.org/ko/docs/IndexedDB)
+* J팀 [GeoLocation API](https://developer.mozilla.org/ko/docs/WebAPI/Using_geolocation)
+
+### 차주 과제
+
+* 1팀 Proximity API, Time & clock API의 변경 이벤트 발생시 다른 앱에 미치는 영향 조사
+* 2팀 Battery Status API
+* 3팀 Network Information API
+* J팀 Alarm API
+
 8/9
 ---
 
