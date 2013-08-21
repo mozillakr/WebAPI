@@ -1,0 +1,24 @@
+<!DOCTYPE>
+<html>
+  <head>
+	<title>Pony viewer</title>
+  </head>
+  <body>
+    <button onclick="goBack();">Back</button>
+    <br />
+	<img id='pony' alt="An image showing a pony" title="My precious!">
+	<script>
+	  function goBack() {
+	  	window.history.back();
+	  }
+	  
+	  var i = document.getElementById('pony');
+
+	  if (navigator.connection.bandwidth > 2) {
+		i.src = "images/pony_hd.jpg";
+	  } else {
+		i.src = "images/pony_sd.jpg";
+	  }
+	</script>
+  </body>
+</html>
