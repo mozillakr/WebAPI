@@ -1,0 +1,14 @@
+{
+  "version": "0.1",
+  "name": "IndexedDB",
+  "description": "IndexedDB API Sample App",
+  "launch_path": "/index.html",
+  "icons": {
+    "16": "/img/icons/icon-16.png",
+    "48": "/img/icons/icon-48.png",
+    "128": "/img/icons/icon-128.png"
+  },
+  "installs_allowed_from": ["*"],
+  "appcache_path": "/cache.manifest",
+  "default_locale": "en"
+}
