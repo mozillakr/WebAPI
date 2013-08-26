@@ -1,6 +1,21 @@
 WebAPI
 ======
 
+8/22
+
+### 발표 & l10n
+
+* 1팀 [Proximity API](https://developer.mozilla.org/ko/docs/WebAPI/Proximity)
+* 2팀 [Battery Status API](https://developer.mozilla.org/ko/docs/WebAPI/Battery_Status)
+* J팀 [Alarm API](https://developer.mozilla.org/ko/docs/WebAPI/Alarm)
+
+### 차주 과제
+
+* 1팀 Idle API
+* 2팀 Web Notifications API
+* 3팀 Power Management API, Network Information API 발표
+* J팀 Camera API
+
 8/16
 ----
 
