@@ -15,7 +15,7 @@ WebAPI
 * 1팀 Idle API
 * 2팀 Web Notifications API
 * 3팀 Power Management API, Network Information API 발표
-* J팀 Camera API
+* J팀 Simple Push API
 
 8/16
 ----
