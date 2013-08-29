@@ -6,6 +6,9 @@
   <body>
     <button onclick="goBack();">Back</button>
     <br />
+    <br />
+    <br />
+    <br />
 	<img id='pony' alt="An image showing a pony" title="My precious!">
 	<script>
 	  function goBack() {
@@ -14,10 +17,11 @@
 	  
 	  var i = document.getElementById('pony');
 
-	  if (navigator.connection.bandwidth > 2) {
-		i.src = "images/pony_hd.jpg";
+	  var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+	  if (connection.bandwidth > 2) {
+		i.src = "images/pony.jpg";
 	  } else {
-		i.src = "images/pony_sd.jpg";
+		i.src = "images/turtle.jpg";
 	  }
 	</script>
   </body>

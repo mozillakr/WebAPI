@@ -1,14 +1,10 @@
 {
-  "version": "0.1",
   "name": "NetworkInformation",
   "description": "Network Information API Example App",
   "launch_path": "/index.html",
   "icons": {
-    "16": "/img/icons/icon-16.png",
-    "48": "/img/icons/icon-48.png",
-    "128": "/img/icons/icon-128.png"
-  },
-  "installs_allowed_from": ["*"],
-  "appcache_path": "/cache.manifest",
-  "default_locale": "en"
+    "16": "img/icon-16.png",
+    "48": "img/icon-48.png",
+    "128": "img/icon-128.png"
+  }
 }

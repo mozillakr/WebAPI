@@ -11,10 +11,11 @@
 	  var gIntervalId;
 
 	  function poll() {
-		// poll stuff
+		alert("Polling!");
 	  }
-
-	  navigator.connection.addEventListener('change', function() {
+	  
+	  var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+	  connection.addEventListener('change', function() {
 		if (gPreviousMetered == navigator.connection.metered) {
 		  return;
 		}

@@ -9,6 +9,5 @@
     "128": "/img/icons/icon-128.png"
   },
   "installs_allowed_from": ["*"],
-  "appcache_path": "/cache.manifest",
   "default_locale": "en"
 }
