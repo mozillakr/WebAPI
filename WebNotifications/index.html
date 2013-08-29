@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Web Notifications Test</title>
+</head>
+
+<body style="margin:0;padding:0;">
+
+	<h1>Web Notifications Test - FxOS Study team S2</h1>
+
+  <div id="userAgent"></div><br />
+  <div id="appVersion"></div><br />
+  <br />
+
+	<h2>navigator.mozNotification test - deprecated - droped in FIrefox 22</h2>
+	<button onclick="notificationTestOld()">navigator.mozNotification</button><br />
+  <div id="notificationOldEvent"></div>
+  <h3>Test success</h3>
+  FxOS<br />
+  Firefox 18.0, 18.1<br />
+	<br />
+  Android<br />
+  Firefox 23.0<br />
+  <br />
+
+  <h3>Test fail</h3>
+  Windows<br />
+  Firefox 23.0<br />
+  <br />
+
+	<h2>Notification</h2>
+	<button onclick="notificationTest()">Notify me!</button><br />
+  <div id="notificationOldEvent"></div>
+
+  <h3>Test success</h3>
+  Windows<br />
+  Firefox 23.0<br />
+  Chrome 29.0<br />
+  <br />
+  Android<br />
+  Firefox 23.0<br />
+  <br />
+
+  <h3>Test fail</h3>
+  FxOS<br />
+  Firefox 18.0 - ReferenceError: Notification is not defined<br />
+  <br />
+  Android<br />
+  Chrome 29.0
+
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+
+</body>
+</html>
