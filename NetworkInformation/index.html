@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>Network Information API Example</title>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <script type="text/javascript">
+			function connectionBandwidthHigh() {
+				document.location = "connection_bandwidth_high.html";
+			}
+			
+			function connectionBandwidthLow() {
+				document.location = "connection_bandwidth_low.html";
+			}
+			
+			function connectionMetered() {
+				document.location = "connection_metered.html";
+			}
+        </script>
+    </head>
+    <body>
+        <p>
+			<button onclick="connectionBandwidthHigh()">Connection Bandwidth High Example</button>
+			<br />
+			
+			<button onclick="connectionBandwidthLow()">Connection Bandwidth Low Example</button>
+			<br />
+			
+			<button onclick="connectionMetered()">Connection Metered Example</button>
+			<br />
+		</p>
+    </body>
+</html>

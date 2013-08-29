@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<title>Idle API Sample</title>
+  <link rel="stylesheet" href="./brick/brick.css"> 
+  <script src="./brick/brick.js"></script>
+</head>
+<body>
+  <x-appbar>
+    <header>Idle API Test</header>
+  </x-appbar>
+  <x-iconbutton src="./img/firefox.png"> Dummy</x-iconbutton>
+  <x-tooltip orientation="auto" > ...zz </x-tooltip>
+  <h2>Events</h2>
+  <ol id="events">
+  </ol>
+<script type="text/javascript" charset="utf-8">
+	'use strict';
+
+	var logger = {
+		placeHolder: document.getElementById("events"), 
+		log: function(msg) {
+			var li = document.createElement("li");
+			li.innerHTML = msg;
+			this.placeHolder.appendChild(li);
+		}
+	}
+	// NOTE: mozPower is part of the Power Management API
+
+	var fadeLight = {
+		time: 3, // 3 seconds
+
+		onidle: function () {
+			// The user does not seem active, let's dim the screen down
+			logger.log("fadeLight on idle");
+			navigator.mozPower.screenBrightness = 0.1;
+		},
+
+		onactive: function () {
+			// Ok, the user is back, let's brighten the screen up
+			logger.log("fadeLight on active");
+			navigator.mozPower.screenBrightness = 1;
+		}
+	}
+
+	var screenOff = {
+		time: 6, // 6 seconds
+
+		onidle: function () {
+			// Ok, the user had his chance but he's really idle, let's turn the screen off
+			logger.log("screenOff on idle");
+			navigator.mozPower.screenEnabled = false;
+		},
+
+		onactive: function () {
+			// Ok, the user is back, let's turn the screen on
+			logger.log("screenOff on active");
+			navigator.mozPower.screenEnabled = true;
+		}
+	}
+
+  logger.log("Register the idle observers");
+
+	navigator.addIdleObserver(fadeLight);
+	navigator.addIdleObserver(screenOff);
+</script>
+</body>
+</html>

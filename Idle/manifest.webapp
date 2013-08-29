@@ -1,0 +1,18 @@
+{
+  "name": "Idle",
+  "description": "Idle API Sample App",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "nothing.png"
+  },
+  "developer": {
+    "name": "고윤지, 변상필, 정규용",
+    "url": ""
+  },
+  "default_locale": "ko",
+  "type": "certified",
+  "permissions": {
+    "idle": {},
+    "power": {}
+  }
+}

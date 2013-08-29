@@ -1,0 +1,11 @@
+.button {
+	height: 50px
+}
+
+#message {
+	padding: 10px;
+}
+
+#message b {
+	color: red;
+}
