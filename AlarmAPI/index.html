@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>Alarm API</title>
+    <style>
+      #popMsg {
+        display:none;
+        position:absolute;
+        top:10px;
+        left:10px;
+        background-color:#000;
+        color:#fff;
+        z-index: 10;
+      }
+      
+      input, button { height: 30px;}
+    </style>
+    <script src="js/alarmApi.js"></script>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="popMsg"></div>
+      <label for="inpTime">Time</label>
+      <input id="inpTime" type="time" />
+      <button id='btnSetAlarm'>알람 설정</button>
+      <ul id="alarmList">
+      </ul>
+    </div>    
+  </body>
+</html>
+
+

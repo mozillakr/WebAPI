@@ -1,0 +1,29 @@
+{
+  "name": "AlarmAPI",
+  "description": "AlarmAPI Test",
+  "type": "certified",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "The Gaia Team J",
+    "url": "https://github.com/mozilla-b2g/gaia"
+  },
+  "permissions": {
+    "alarms":{}
+  },
+  "locales": {
+    "en-US": {
+      "name": "AlarmAPI",
+      "description": "Gaia Clock"
+    },
+    "ko": {
+      "name": "알람API",
+      "description": "Gaia 알람"
+    }
+  },  
+  "default_locale": "en-US",
+  "icons": {},
+  "orientation": "portrait-primary",
+  "messages": [
+     { "alarm": "/index.html" }
+  ]
+}
