@@ -10,3 +10,4 @@
 ---
 
 * `onactive` 는 호출되지 않는다. 왜?
+ * **Firefox OS Simulator** 에선 정상 동작.
