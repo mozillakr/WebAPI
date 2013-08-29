@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Conditional polling</title>
+	<script>
+	  function goBack() {
+	  	window.history.back();
+	  }
+	  
+	  var gPreviousMetered = navigator.connection.metered;
+	  var gIntervalId;
+
+	  function poll() {
+		alert("Polling!");
+	  }
+	  
+	  var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+	  connection.addEventListener('change', function() {
+		if (gPreviousMetered == navigator.connection.metered) {
+		  return;
+		}
+
+		gPreviousMetered = navigator.connection.metered;
+		if (!navigator.connection.metered) {
+		  gIntervalId = setInterval(poll, 1000);
+		} else {
+		  clearInterval(gIntervalId);
+		}
+	  }, false);
+
+	  // At load time.
+	  if (!navigator.connection.metered) {
+		gIntervalId = setInterval(poll, 1000);
+	  }
+	</script>
+  </head>
+  <body>
+    <button onclick="goBack();">Back</button>
+    <br />
+	<button onclick="poll();">Poll</button>
+  </body>
+</html>
