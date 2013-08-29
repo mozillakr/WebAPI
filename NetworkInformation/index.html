@@ -5,8 +5,12 @@
     	<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <script type="text/javascript">
-			function connectionBandwidth() {
-				document.location = "connection_bandwidth.html";
+			function connectionBandwidthHigh() {
+				document.location = "connection_bandwidth_high.html";
+			}
+			
+			function connectionBandwidthLow() {
+				document.location = "connection_bandwidth_low.html";
 			}
 			
 			function connectionMetered() {
@@ -16,7 +20,10 @@
     </head>
     <body>
         <p>
-			<button onclick="connectionBandwidth()">Connection Bandwidth Example</button>
+			<button onclick="connectionBandwidthHigh()">Connection Bandwidth High Example</button>
+			<br />
+			
+			<button onclick="connectionBandwidthLow()">Connection Bandwidth Low Example</button>
 			<br />
 			
 			<button onclick="connectionMetered()">Connection Metered Example</button>
