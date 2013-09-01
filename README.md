@@ -1,6 +1,20 @@
 WebAPI
 ======
 
+8/29
+----
+
+### 발표 & l10n
+
+* 3팀 [Power Management API](https://developer.mozilla.org/ko/docs/WebAPI/Power_Management), [Network Information API](https://developer.mozilla.org/ko/docs/WebAPI/Network_Information)
+* 1팀 [Idle API](https://developer.mozilla.org/ko/docs/WebAPI/Idle)
+* 2팀 [Web Notifications API](https://developer.mozilla.org/ko/docs/WebAPI/Using_Web_Notifications)
+
+### 차주 과제
+
+* J팀 Simple Push API
+* 전세계 사람들이 유용하게 많이 사용할 수 있는 앱 아이디어를 생각해 와서 아이디어 공유
+
 8/22
 ----
 
